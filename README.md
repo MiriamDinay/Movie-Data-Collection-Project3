@@ -28,7 +28,3 @@ http://localhost:5000
 * **Genres:** A comma-separated list of genres (e.g., Action, Drama).
 * **Production Countries:** A comma-separated list of countries (e.g., United States, UK).
 * **Plot Summary:** Free text describing the plot. The backend calculates the length of the text as a feature for the model.
-
-## 6. Team Members
-* מרים דינאי
-* הילה הלברשטט
