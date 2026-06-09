@@ -7,24 +7,27 @@ This project is a web application built with Flask that deploys a trained Random
 1. Clone this repository to your local machine.
 2. Open your command prompt/terminal and navigate to the project folder.
 3. Create a virtual environment:
-   python -m venv venv
+   `python -m venv venv`
 4. Activate the virtual environment:
-   Windows: venv\Scripts\activate
-   Mac/Linux: source venv/bin/activate
+   * Windows: `venv\Scripts\activate`
+   * Mac/Linux: `source venv/bin/activate`
 5. Install the required packages:
-   pip install -r requirements.txt
+   `pip install -r requirements.txt`
 
 ## 3. Execution Instructions
 To run the server, ensure your virtual environment is activated and run the following command in your terminal:
-python api.py
+`python api.py`
 
 ## 4. Application Access
 Once the server is running, open your web browser and go to:
 http://localhost:5000
 
 ## 5. Required Input Fields & Expected Values
-* **Release Year:** A numeric value for the release year (e.g., 2023).
-* **Runtime (Minutes):** A numeric value representing duration (e.g., 120).
-* **Genres:** A comma-separated list of genres (e.g., Action, Drama).
-* **Production Countries:** A comma-separated list of countries (e.g., United States, UK).
-* **Plot Summary:** Free text describing the plot. The backend calculates the length of the text as a feature for the model.
+* **Release Year (`startYear`):** Integer year of release. Expected range ~1888-2030 (e.g., 1994).
+* **Runtime in Minutes (`runtimeMinutes`):** Positive integer, typically 1-400 (e.g., 142).
+* **Genres (`genres`):** Comma-separated list of genres (e.g., Drama, Crime). Used to derive the number of genres, the primary genre, and the `is_drama` / `is_comedy` / `is_documentary` flags.
+* **Production Countries (`Country`):** Comma-separated list of countries (e.g., United States, UK). Used to derive `is_US` and the number of production countries.
+* **Plot Summary (`plot`):** Free text describing the plot. The number of words in the text is used as a feature (`plot_length`).
+**Note on Project Structure:**
+* The HTML page is located in the `templates/` folder, as required by Flask's `render_template()`.
+* The trained model (`trained_model.pkl`) was trained with scikit-learn 1.6.1, which is pinned in `requirements.txt` so the model loads correctly.
